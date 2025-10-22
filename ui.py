@@ -89,4 +89,4 @@ def print_free_list(fs):
     else:
         panel_content += "[bold]Cadeia de Livres:[/bold] " + " -> ".join(nodes) + " -> [red]NULL[/red]"
 
-    console.print(Panel(panel_content, title="📉 Lista de Blocos Livres", border_style="green"))
+    console.print(Panel(panel_content, title="📉 Lista de Blocos Livres", border_style="green")) 
