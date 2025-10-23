@@ -1,7 +1,6 @@
 import array
 import warnings
 
-# Ignora o aviso de depreciação do tipo 'u' (char)
 warnings.filterwarnings("ignore", message="The 'u' type code is deprecated")
 
 class Disk:

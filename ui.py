@@ -2,7 +2,6 @@ from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
 
-# Inicializa o console do 'rich'
 console = Console()
 
 def print_step(title):

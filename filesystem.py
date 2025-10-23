@@ -1,5 +1,5 @@
 from disk import Disk
-import ui # Usaremos o UI para imprimir mensagens de status
+import ui 
 
 class FileSystem:
     """
