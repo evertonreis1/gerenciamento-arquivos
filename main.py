@@ -1,8 +1,9 @@
 from filesystem import FileSystem
-import ui  
+import ui
 from rich.console import Console
 from rich.panel import Panel
 import time
+
 
 def print_menu():
     console = Console()
@@ -17,24 +18,22 @@ def print_menu():
 6. Mostrar Disco Completo
 7. Sair
 """
-    console.print(Panel(menu_text, title="Menu Principal", width=60, border_style="blue"))
-    
+    console.print(Panel(menu_text, title="Menu Principal",
+                  width=60, border_style="blue"))
+
     try:
         choice = console.input("[bold]Escolha uma opção (1-7): [/bold]")
         return choice
     except EOFError:
-        return '7' 
+        return '7'
     except KeyboardInterrupt:
         return '7'
 
 
 def main_interactive():
-    """
-    Loop principal interativo do sistema de arquivos.
-    """
     fs = FileSystem()
     console = Console()
-    
+
     ui.print_step("SISTEMA DE ARQUIVOS INICIADO")
     ui.print_info(f"Disco de {fs.disk.DISK_SIZE} blocos inicializado.")
     ui.print_free_list(fs)
@@ -48,7 +47,7 @@ def main_interactive():
             ui.print_step("1. Criar Arquivo")
             name = input("Nome do arquivo (max 4 chars): ").strip()
             content = input("Conteúdo (palavra): ").strip()
-            
+
             if not name or not content:
                 ui.print_error("Nome e conteúdo não podem ser vazios.")
             else:
@@ -58,7 +57,7 @@ def main_interactive():
             ui.print_step("2. Ler Arquivo")
             name = input("Nome do arquivo para ler: ").strip()
             if not name:
-                 ui.print_error("Nome não pode ser vazio.")
+                ui.print_error("Nome não pode ser vazio.")
             else:
                 fs.read_file(name)
 
@@ -66,7 +65,7 @@ def main_interactive():
             ui.print_step("3. Excluir Arquivo")
             name = input("Nome do arquivo para excluir: ").strip()
             if not name:
-                 ui.print_error("Nome não pode ser vazio.")
+                ui.print_error("Nome não pode ser vazio.")
             else:
                 fs.delete_file(name)
 
@@ -88,9 +87,10 @@ def main_interactive():
 
         else:
             ui.print_error("Opção inválida. Por favor, escolha de 1 a 7.")
-        
+
         console.input("\n[dim]Pressione Enter para continuar...[/dim]")
-        console.clear() 
+        console.clear()
+
 
 if __name__ == "__main__":
     try:
